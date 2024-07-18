@@ -1,0 +1,20 @@
+﻿<Window x:Class="Frontend.View.MyBoardsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Frontend.View"
+        mc:Ignorable="d"
+        Title="MyBoards" Height="450" Width="800">
+    <Grid Background="Aquamarine">
+        <StackPanel Orientation="Vertical">
+            <Label Content="{Binding Path=title, Mode=OneWay }" FontSize="20" HorizontalAlignment="Center" ></Label>
+            <Label Content="Boards :" HorizontalAlignment="Center" FontSize="15"></Label>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListBox Width="500" MaxHeight="1000" ItemsSource="{Binding Path=myBoards, Mode=TwoWay}" SelectedItem="{Binding Path=SelectedBoard, Mode=TwoWay}" SelectionMode="Single"  HorizontalContentAlignment="Center"></ListBox>
+            </ScrollViewer>
+            <Button Content="Enter" Name="Enter" Width="50"  IsEnabled="{Binding Path=isEnabaled, Mode=OneWay}" Click="Enter_OnClick"></Button>
+        </StackPanel>
+        <Button Name="Logout" Click="Logout_OnClick" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Logout"  Margin="15,15,0,0" ></Button>
+    </Grid>
+</Window>
